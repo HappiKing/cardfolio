@@ -39,30 +39,159 @@
     background: #fff;
     text-transform: capitalize;
     text-rendering: optimizeLegibility;
-    text-decoration: none; /* 밑줄 제거 */
+    text-decoration: none;
+    /* 밑줄 제거 */
     transition: all 0.35s ease;
     width: 80vw;
     max-width: 300px;
+    
 }
 
 .method-control.google {
     background: #F2F2F2;
 }
+
 .method-control.kakao {
     background: #fae500;
 }
+
 .method-control.email {
     background: #5B5B5B;
 }
 
+.cont{
+    position: absolute;
+    width: calc(100% - 20px);
+    height: calc(100vh - 135px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto auto;
+    gap: 15px 0px;
+    grid-template-areas:
+        "login-contents"
+        "login-btn"
+        "login-reg-find-pw";
+}
+
+
+.login-contents { 
+    grid-area: login-contents; 
+    
+}
+
+.login-contents > h1 {
+    font-size: 32px;
+    font-weight: 900;
+    padding-bottom: 50px;
+}
+
+
+  
+.id-section {
+    position: relative;
+}
+
+.id-section:not(:last-child) {
+    margin-bottom: 40px;
+  }
+  
+.id-section > input {
+    font-size: 16px;
+    color: #222222;
+    width: 260px;
+    border: none;
+    border-bottom: solid #aaaaaa 1px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    position: relative;
+    background: none;
+    z-index: 5;
+}
+  
+.id-section > input::placeholder { color: #aaaaaa; }
+.id-section > input:focus { outline: none; box-shadow: none; }
+  
+.id-section > span {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0%;  /* right로만 바꿔주면 오 - 왼 */
+    background-color: #666;
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    transition: 0.5s;
+}
+  
+.id-section > label {
+    position: absolute;
+    color: #aaa;
+    left: 10px;
+    font-size: 20px;
+    bottom: 8px;
+    transition: all .2s;
+}
+  
+input:focus ~ label, input:valid ~ label {
+    font-size: 16px;
+    bottom: 40px;
+    color: #666;
+    font-weight: bold;
+}
+  
+input:focus ~ span, input:valid ~ span {
+    width: 100%;
+}
+
+
+.login-btn { 
+    grid-area: login-btn; 
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.login-btn > button {
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 2rem;
+    border: 1px solid black;
+    color: black;
+    font-size: 18px;
+}
+
+.login-reg-find-pw{ 
+    grid-area: login-reg-find-pw;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-around;
+}
+
+.login-reg-find-pw > span {
+    width: 100px;
+    text-align: center;
+}
+
+
+
+
 @media (max-width: 344px) {
+
     /* 스타일을 적용할 요소 */
     .method-control {
         border-radius: initial;
     }
+
     .method-control.google,
     .method-control.kakao,
     .method-control.email {
         background: initial;
     }
-  }
+}

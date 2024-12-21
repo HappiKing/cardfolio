@@ -3,12 +3,13 @@ import { create } from 'zustand'
 
 import './../static/css/Intro.css'
 
+import pageback from './../static/img/arrow_back_ios.svg'
 import LoginGoogle from './../static/img/login_google.svg'
 import LoginKakao from './../static/img/login_kakao.svg'
 import LoginEmail from './../static/img/login_email.svg'
 
 const useStore = create((set) => ({
-  loginType: "E",
+  loginType: "",
   setLoginType: (val) => { set({ loginType: val }) }
 
 }))
@@ -27,6 +28,9 @@ const Intro = () => {
   } else if (loginType === "G") {
     return (
       <>
+        <div className='back-btn' onClick={() => { setLoginType("") }}>
+          <img src={pageback}></img>
+        </div>
         <div>Google Login</div>
       </>
     )
@@ -34,14 +38,43 @@ const Intro = () => {
   } else if (loginType === "K") {
     return (
       <>
+        <div className='back-btn' onClick={() => { setLoginType("") }}>
+          <img src={pageback}></img>
+        </div>
         <div>Kakao Login</div>
       </>
     )
   } else if (loginType === "E") {
     return (
       <>
-        <div>Email Login</div>
-        
+        <div className='back-btn' onClick={() => { setLoginType("") }}>
+          <img src={pageback}></img>
+        </div>
+        <div className='cont'>
+          <div className='login-content'>
+            <div className='login-contents'>
+              <h1>로그인</h1>
+
+              <div className='id-section'>
+                <input type="text" autocapitalize="none" autocorrect="off" spellcheck="false" required></input>
+                <label>아이디</label>
+                <span></span>
+              </div>
+              <div className='id-section'>
+                <input type="password" autocapitalize="none" autocorrect="off" required></input>
+                <label>비밀번호</label>
+                <span></span>
+              </div>
+            </div>
+            <div className='login-btn'>
+              <button>로그인</button>
+            </div>
+            <div className='login-reg-find-pw'>
+              <span>비밀번호 찾기</span>
+              <span>회원가입</span>
+            </div>
+          </div>
+        </div>
       </>
     )
   }
