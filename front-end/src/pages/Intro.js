@@ -9,52 +9,50 @@ import LoginKakao from './../static/img/login_kakao.svg'
 import LoginEmail from './../static/img/login_email.svg'
 
 const useStore = create((set) => ({
-  loginType: "",
-  setLoginType: (val) => { set({ loginType: val }) }
+  pageType: "",
+  setPageType: (val) => { set({ pageType: val }) }
 
 }))
 
 
 const Intro = () => {
-  const { loginType, setLoginType } = useStore();
+  const { pageType, setPageType } = useStore();
   let navigete = useNavigate();
 
-  if (loginType === "") {
+  if (pageType === "") {
     return (
       <>
         <IntroPage></IntroPage>
       </>
     );
-  } else if (loginType === "G") {
+  } else if (pageType === "G") {
     return (
       <>
-        <div className='back-btn' onClick={() => { setLoginType("") }}>
+        <div className='back-btn' onClick={() => { setPageType("") }}>
           <img src={pageback}></img>
         </div>
         <div>Google Login</div>
       </>
-    )
-
-  } else if (loginType === "K") {
+    );
+  } else if (pageType === "K") {
     return (
       <>
-        <div className='back-btn' onClick={() => { setLoginType("") }}>
+        <div className='back-btn' onClick={() => { setPageType("") }}>
           <img src={pageback}></img>
         </div>
         <div>Kakao Login</div>
       </>
-    )
-  } else if (loginType === "E") {
+    );
+  } else if (pageType === "E") {
     return (
       <>
-        <div className='back-btn' onClick={() => { setLoginType("") }}>
+        <div className='back-btn' onClick={() => { setPageType("") }}>
           <img src={pageback}></img>
         </div>
         <div className='cont'>
           <div className='login-content'>
             <div className='login-contents'>
               <h1>로그인</h1>
-
               <div className='id-section'>
                 <input type="text" autocapitalize="none" autocorrect="off" spellcheck="false" required></input>
                 <label>아이디</label>
@@ -70,32 +68,51 @@ const Intro = () => {
               <button>로그인</button>
             </div>
             <div className='login-reg-find-pw'>
-              <span>비밀번호 찾기</span>
-              <span>회원가입</span>
+              <span onClick={() =>{ setPageType("F") }}>비밀번호 찾기</span>
+              <span onClick={() =>{ setPageType("R") }}>회원가입</span>
             </div>
           </div>
         </div>
+      </>
+    );
+  } else if (pageType === "F") {
+    return (
+      <>
+        <div className='back-btn' onClick={() => { setPageType("") }}>
+          <img src={pageback}></img>
+        </div>
+        <div>비밀번호 찾기</div>
+      </>
+    )
+  } else if (pageType === "R") {
+    return (
+      <>
+        <div className='back-btn' onClick={() => { setPageType("") }}>
+          <img src={pageback}></img>
+        </div>
+        <div>회원가입</div>
       </>
     )
   }
 
 
+
 };
 
 const IntroPage = () => {
-  const { setLoginType } = useStore();
+  const { setPageType } = useStore();
 
   return (
     <div>
       <div className='logo-text'>LinkIN</div>
       <div className='btn-container'>
-        <div className="method-control google" onTouchEnd={() => { setLoginType("G") }}>
+        <div className="method-control google" onTouchEnd={() => { setPageType("G") }}>
           <img src={LoginGoogle}></img>
         </div>
-        <div className="method-control kakao" onTouchEnd={() => { setLoginType("K") }}>
+        <div className="method-control kakao" onTouchEnd={() => { setPageType("K") }}>
           <img src={LoginKakao}></img>
         </div>
-        <div className="method-control email" onClick={() => { setLoginType("E") }}>
+        <div className="method-control email" onClick={() => { setPageType("E") }}>
           <img src={LoginEmail}></img>
         </div>
       </div>
