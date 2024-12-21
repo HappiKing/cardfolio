@@ -1,0 +1,48 @@
+.content {
+    height: max-content;
+    padding-bottom: 45px; /* .bottomNav의 높이만큼 여백 추가 */
+}
+
+.content>h1{
+    background-color: orange;
+}
+
+/* 네비바 하단 고정 밑 세로 길이 설정 */
+.wrapper {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 45px;
+}
+
+/* nav태그 아래의 자식들을 수평정렬하기 위한 설정 */
+nav {
+    overflow: hidden;
+    border-top: 1px solid grey;
+}
+
+/* nav태그 아래의 div태그들을 수평정렬 및 세로길이 설정 */
+nav>div {
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    /* 수평정렬, 5개의 button을 각각 20% width만큼 할당 */
+    text-align: center;
+    float: left;
+    width: 20%;
+
+    /* 세로길이 설정 */
+    height: 45px;
+    line-height: 45px;
+    
+}
+
+.bottom-icon{
+    width: 24px;
+}
+
+.bottom-icon.active {
+    filter: invert(16%) sepia(89%) saturate(6054%) hue-rotate(358deg) brightness(97%) contrast(113%);
+}
+
