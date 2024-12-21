@@ -1,0 +1,68 @@
+.logo-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: calc(100vh - 100px);
+}
+
+.btn-container {
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding-bottom: 10px;
+}
+
+
+.method-control {
+    margin-bottom: 1rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    padding: 0.35rem 1.25rem;
+    outline: none;
+    border-radius: 2rem;
+    color: #000;
+    background: #fff;
+    text-transform: capitalize;
+    text-rendering: optimizeLegibility;
+    text-decoration: none; /* 밑줄 제거 */
+    transition: all 0.35s ease;
+    width: 80vw;
+    max-width: 300px;
+}
+
+.method-control.google {
+    background: #F2F2F2;
+}
+.method-control.kakao {
+    background: #fae500;
+}
+.method-control.email {
+    background: #5B5B5B;
+}
+
+@media (max-width: 344px) {
+    /* 스타일을 적용할 요소 */
+    .method-control {
+        border-radius: initial;
+    }
+    .method-control.google,
+    .method-control.kakao,
+    .method-control.email {
+        background: initial;
+    }
+  }

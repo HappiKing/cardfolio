@@ -3,7 +3,7 @@ import './App.css';
 // 페이지 라우터
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import Intro from "./pages/Intro.js"// intro
+import Intro from './pages/Intro.js';
 
 import Home from "./pages/Home.js"  // Home
 import List from "./pages/List.js"  // Home
