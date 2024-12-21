@@ -8,7 +8,7 @@ import LoginKakao from './../static/img/login_kakao.svg'
 import LoginEmail from './../static/img/login_email.svg'
 
 const useStore = create((set) => ({
-  loginType: "",
+  loginType: "E",
   setLoginType: (val) => { set({ loginType: val }) }
 
 }))
@@ -41,7 +41,7 @@ const Intro = () => {
     return (
       <>
         <div>Email Login</div>
-        <button onClick={()=>{navigete('/home')}}></button>
+        
       </>
     )
   }
